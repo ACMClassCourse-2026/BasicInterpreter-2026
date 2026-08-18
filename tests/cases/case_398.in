@@ -1,0 +1,6 @@
+10 DIM A(4, 5, 6, 7) AS INTEGER
+20 LET A(3, 4, 5, 6) = 42
+30 PRINT A(0, 0, 0, 0)
+40 PRINT A(3, 4, 5, 6)
+RUN
+QUIT

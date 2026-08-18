@@ -1,0 +1,6 @@
+10 DIM A(2, 3) AS INTEGER
+20 LET A(0, 1) = 1
+30 LET A(1, 0) = 2
+40 PRINT A(0, 1) + A(1, 0)
+RUN
+QUIT

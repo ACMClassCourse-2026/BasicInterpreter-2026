@@ -1,0 +1,4 @@
+10 IF 1 = 1 THEN
+20 END IF
+RUN
+QUIT

@@ -1,0 +1,36 @@
+10 DIM M(2, 2) AS LONG
+20 DIM R(2, 2) AS LONG
+30 DIM T(2, 2) AS LONG
+40 DIM E AS LONG = 70
+50 LET M(0, 0) = CLNG(1)
+60 LET M(0, 1) = CLNG(1)
+70 LET M(1, 0) = CLNG(1)
+80 LET M(1, 1) = CLNG(0)
+90 LET R(0, 0) = CLNG(1)
+100 LET R(1, 1) = CLNG(1)
+110 WHILE E > CLNG(0)
+120 IF E MOD CLNG(2) = CLNG(1) THEN
+130 LET T(0, 0) = R(0, 0) * M(0, 0) + R(0, 1) * M(1, 0)
+140 LET T(0, 1) = R(0, 0) * M(0, 1) + R(0, 1) * M(1, 1)
+150 LET T(1, 0) = R(1, 0) * M(0, 0) + R(1, 1) * M(1, 0)
+160 LET T(1, 1) = R(1, 0) * M(0, 1) + R(1, 1) * M(1, 1)
+170 LET R(0, 0) = T(0, 0)
+180 LET R(0, 1) = T(0, 1)
+190 LET R(1, 0) = T(1, 0)
+200 LET R(1, 1) = T(1, 1)
+210 END IF
+220 LET E = E \ CLNG(2)
+230 IF E > CLNG(0) THEN
+240 LET T(0, 0) = M(0, 0) * M(0, 0) + M(0, 1) * M(1, 0)
+250 LET T(0, 1) = M(0, 0) * M(0, 1) + M(0, 1) * M(1, 1)
+260 LET T(1, 0) = M(1, 0) * M(0, 0) + M(1, 1) * M(1, 0)
+270 LET T(1, 1) = M(1, 0) * M(0, 1) + M(1, 1) * M(1, 1)
+280 LET M(0, 0) = T(0, 0)
+290 LET M(0, 1) = T(0, 1)
+300 LET M(1, 0) = T(1, 0)
+310 LET M(1, 1) = T(1, 1)
+320 END IF
+330 WEND
+340 PRINT R(0, 1)
+RUN
+QUIT

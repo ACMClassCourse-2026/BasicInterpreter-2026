@@ -1,0 +1,4 @@
+10 DIM X = "A"
+20 PRINT X
+RUN
+QUIT

@@ -1,0 +1,2 @@
+PRINT CINT(-3.9)
+QUIT

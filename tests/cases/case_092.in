@@ -1,0 +1,4 @@
+10 REM program comment
+20 PRINT 1
+RUN
+QUIT

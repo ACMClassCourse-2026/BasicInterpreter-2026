@@ -1,0 +1,2 @@
+PRINT CDBL(2.5) + CDBL(3.5)
+QUIT

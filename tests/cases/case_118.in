@@ -1,0 +1,2 @@
+PRINT CLNG(2) + CLNG(3)
+QUIT

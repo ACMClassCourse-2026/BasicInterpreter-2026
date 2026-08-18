@@ -1,0 +1,4 @@
+10 FOR I = 1 TO "A"
+20 NEXT I
+RUN
+QUIT

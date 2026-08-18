@@ -1,0 +1,4 @@
+10 DIM X% = 1
+20 DIM X& = 2
+RUN
+QUIT

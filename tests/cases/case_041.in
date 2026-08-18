@@ -1,0 +1,4 @@
+10 DIM X = 3.5
+20 PRINT X
+RUN
+QUIT
