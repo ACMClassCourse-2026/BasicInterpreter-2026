@@ -1,5 +1,26 @@
 # Interpreter
 
-Interpreter 负责将 ParsedInput 分派给 Program，并处理 RUN、LIST、CLEAR、
-QUIT 和 HELP。`process_line` 返回 false 表示结束命令循环；运行时错误只终止
-当前命令，不销毁解释器。
+## 概述
+
+`Interpreter` 是交互式解释器的入口，负责解析用户输入并将程序编辑、立即语句和解释器命令分派给 `Program`。运行时错误只终止当前命令，不销毁解释器对象。
+
+## 数据成员
+
+| 名称 | 类型 | 作用 |
+| :-: | :-: | :-: |
+| `parser_` | `Parser` | 解析每行用户输入 |
+| `program_` | `Program` | 保存并运行当前 BASIC 程序 |
+| `output_` | `std::ostream&` | 借用的输出流，用于输出帮助信息 |
+
+## 私有成员函数
+
+| 名称 | 作用 |
+| :-: | :-: |
+| `print_help` | 输出解释器支持的命令列表 |
+
+## 公有成员函数
+
+| 名称 | 作用 |
+| :-: | :-: |
+| `Interpreter` | 使用给定输入流和输出流创建解释器 |
+| `process_line` | 解析并处理一行输入；返回 `false` 表示收到 QUIT，应结束命令循环 |

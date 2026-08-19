@@ -1,5 +1,27 @@
 # Program
 
-Program 组合 ProgramStore、Environment 和 Parser。学生实现行编辑、LIST、
-CLEAR、立即执行和 RUN。RUN 应先完整解析，成功后清空环境，执行并在所有退出
-路径释放 ProgramAst。
+## 概述
+
+`Program` 组合源码存储、运行环境和解析器，负责程序行编辑、LIST、CLEAR、立即执行和 RUN。每次 RUN 都重新解析完整程序，并在执行结束或发生异常后释放语法树。
+
+## 数据成员
+
+| 名称 | 类型 | 作用 |
+| :-: | :-: | :-: |
+| `store_` | `ProgramStore` | 保存当前程序的行号和源码 |
+| `environment_` | `Environment` | 保存立即执行和程序运行使用的变量环境 |
+| `parser_` | `Parser` | 将已保存源码解析为完整语法树 |
+| `input_` | `std::istream&` | 借用的输入流 |
+| `output_` | `std::ostream&` | 借用的输出流 |
+
+## 公有成员函数
+
+| 名称 | 作用 |
+| :-: | :-: |
+| `Program` | 绑定程序运行使用的输入流和输出流 |
+| `upsert_line` | 新增程序行，或覆盖相同行号的已有源码 |
+| `erase_line` | 删除指定行号的程序行；行号不存在时不产生错误 |
+| `list` | 按行号升序输出当前程序 |
+| `clear` | 清空已保存源码和运行环境 |
+| `run` | 完整解析当前程序，清空环境后从头执行，并处理执行信号和语法树生命周期 |
+| `execute_immediate` | 取得给定语句的所有权，在当前环境中立即执行并在所有退出路径释放语句 |
